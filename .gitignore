@@ -1,0 +1,21 @@
+# Local plugin settings (user-specific)
+*.local.md
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Cache and temp
+.cache/
+*.tmp
+
+# Research / scraped content
+.firecrawl/
+
+# Node (if MCP servers added later)
+node_modules/

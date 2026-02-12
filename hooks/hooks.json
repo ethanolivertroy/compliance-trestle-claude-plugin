@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if the Bash command that just ran contained 'trestle assemble', 'trestle import', 'trestle merge', 'trestle create', or 'trestle split'. If it did AND the command succeeded (exit code 0): For 'trestle assemble', 'trestle import', or 'trestle merge', remind the user: 'The assembled/imported/merged model should be validated. Run: trestle validate -t <type> -n <name>' — fill in the type and name from the command. For 'trestle create', remind the user: 'The new model has been created with REPLACE_ME placeholder values. Edit the model to fill in actual values, then validate.' For 'trestle split', remind the user: 'The model has been split into sub-component files for editing. After editing, recombine with: trestle merge -e <elements>' — suggest the appropriate merge command. If the command did NOT contain any of these trestle commands, do nothing and say nothing."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/check-oscal-edit.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
