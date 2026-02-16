@@ -1,5 +1,7 @@
 # Compliance Trestle Plugin for Claude Code
 
+> **Disclaimer:** This is an independent, community-driven project and is not affiliated with, endorsed by, or officially associated with Anthropic or Claude. The author is an independent developer contributing to open source and demonstrating how these tools can be used in real-world workflows. Claude, Anthropic, and any related marks are property of their respective owners.
+
 **v0.1.0**
 
 Manage OSCAL compliance packages using [Compliance Trestle](https://oscal-compass.dev/compliance-trestle) — a CNCF sandbox project for machine-readable compliance documentation (NIST OSCAL standard).
